@@ -2,6 +2,7 @@ package com.dev.DSList_backend.dto;
 
 
 import com.dev.DSList_backend.entities.Game;
+import com.dev.DSList_backend.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -19,8 +20,13 @@ public class GameMinDTO {
         shortDescription = entity.getShortDescription();
     }
 
-    public GameMinDTO() {
-        }
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getGameYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
+    }
 
     public Long getId() {
         return id;
